@@ -1,6 +1,5 @@
 // Yodhe Desta
 // AccountInheritanceTest
-// PE 11-10
 //Test code that creates objects of each class and tests their member functions.
 #include "Account.h" 
 #include "SavingsAccount.h" 
@@ -12,9 +11,9 @@ using namespace std;
 
 int main() {
 
-	const int SIZE = 3;
+	const int SIZE = 2;
 
-	// creating three account
+	
 	vector<Account*>account(SIZE);
 
 	double interest;
@@ -23,19 +22,19 @@ int main() {
 
 	account[0] = new SavingsAccount(100, 0.03);
 	account[1] = new CheckingAccount(200, 1);
-	account[2] = new SavingsAccount(300, 0.02);
+	
 
 	for (int i = 0; i < SIZE; i++) {
 
-		cout << "Processing Account number " << (i + 1) << " balance: $" << account[i]->getBalance() << endl;
+		cout << " Account number " << (i + 1) << " balance: $" << account[i]->getBalance() << endl;
 
-		// debit
-		cout << "Enter amount for debit: ";
+		
+		cout << "withdraw: ";
 		cin >> withdraw;
 		account[i]->debit(withdraw);
 
 		// credit
-		cout << "Enter amount to credit: ";
+		cout << "deposit: ";
 		cin >> deposit;
 		account[i]->credit(deposit);
 
@@ -52,10 +51,10 @@ int main() {
 		{
 			cout << "Account " << (i + 1) << " is of Checking type" << endl;
 		}
-		cout << "Final balance: " << account[i]->getBalance() << endl << endl;
+		cout << " balance: " << account[i]->getBalance() << endl << endl;
 	}
 
-	// deleting the objects
+	// deleting the dynamic allocted 
 	for (int i = 0; i < SIZE; i++)
 		delete account[i];
 	return 0;
